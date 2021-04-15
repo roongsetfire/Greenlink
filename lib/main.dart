@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_bin/login_screen/login_Firstpage.dart';
+import 'package:project_bin/router.dart';
 
 void main() => runApp(MyApp());
 
@@ -8,9 +8,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Flutter Login First Page",
       debugShowCheckedModeBanner: false,
-      home: LoginFirstPage(),
+      routes: routes,
+      initialRoute: '/Login',
     );
   }
 }

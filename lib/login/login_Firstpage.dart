@@ -289,7 +289,7 @@ class _LoginFirstPageState extends State<LoginFirstPage> {
   // Text กด 'ลงทะเบียน'
   Widget signup() {
     return TextButton(
-      onPressed: () {},
+      onPressed: () => Navigator.pushNamed(context, '/SignUp'),
       child: Container(
         padding: EdgeInsets.only(bottom: 3),
         decoration: BoxDecoration(
