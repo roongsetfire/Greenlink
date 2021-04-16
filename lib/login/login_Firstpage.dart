@@ -102,7 +102,7 @@ class _LoginFirstPageState extends State<LoginFirstPage> {
         color: Colors.lightGreen.shade200,
         child: Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
             image: DecorationImage(
               image: ExactAssetImage('images/grass.jpg'),
               fit: BoxFit.fill,

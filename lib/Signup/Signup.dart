@@ -341,9 +341,10 @@ class _SignUpState extends State<SignUp> {
                                 Icons.location_on_outlined,
                                 size: 40,
                               ),
-                              onTap: () {},
+                              onTap: () =>
+                                  Navigator.pushNamed(context, '/MapSignUp'),
                             ),
-                            hintText: 'ตำแหน่งบนแผนที่',
+                            hintText: 'คลิกไอคอนด้านซ้ายเพื่อเลือกที่อยู่',
                             hintStyle:
                                 TextStyle(fontSize: 16, fontFamily: 'Kanit'),
                             contentPadding: EdgeInsets.only(left: 20),
@@ -360,11 +361,11 @@ class _SignUpState extends State<SignUp> {
                         child: ElevatedButton(
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
-                              enableFeedback: true,
-                              primary: Color.fromRGBO(5, 0, 255, 1),
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20)),
-                              padding: EdgeInsets.all(12)),
+                            enableFeedback: true,
+                            primary: Color.fromRGBO(5, 0, 255, 1),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20)),
+                          ),
                           child: Text(
                             "บันทึก",
                             style: TextStyle(

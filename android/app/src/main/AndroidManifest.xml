@@ -1,8 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.project_bin">
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
    <application
         android:label="project_bin"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyBay2QcAgonGBGWy8f4bwzBBq0O35L4tjI"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
