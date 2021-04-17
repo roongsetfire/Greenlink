@@ -88,7 +88,7 @@ class _SignUpState extends State<SignUp> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       TextFormField(
-                        autofocus: true,
+                        autofocus: false,
                         decoration: InputDecoration(
                           icon: Icon(
                             Icons.account_circle_outlined,
@@ -186,7 +186,7 @@ class _SignUpState extends State<SignUp> {
                       Container(
                         margin: EdgeInsets.only(top: 20),
                         child: TextFormField(
-                          keyboardType: TextInputType.emailAddress,
+                          keyboardType: TextInputType.number,
                           autofocus: false,
                           decoration: InputDecoration(
                             icon: Icon(
@@ -232,11 +232,14 @@ class _SignUpState extends State<SignUp> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Container(
-                                width: screenwidth * 0.35,
+                                width: screenwidth * 0.32,
                                 margin: EdgeInsets.fromLTRB(55, 20, 0, 0),
                                 child: TextFormField(
-                                  keyboardType: TextInputType.emailAddress,
+                                  keyboardType: TextInputType.number,
                                   autofocus: false,
+                                  inputFormatters: [
+                                    LengthLimitingTextInputFormatter(5)
+                                  ],
                                   decoration: InputDecoration(
                                     hintText: 'รหัสไปรษณีย์',
                                     hintStyle: TextStyle(
@@ -250,7 +253,7 @@ class _SignUpState extends State<SignUp> {
                                 ),
                               ),
                               Container(
-                                width: screenwidth * 0.35,
+                                width: screenwidth * 0.32,
                                 margin: EdgeInsets.only(top: 20),
                                 child: TextFormField(
                                   keyboardType: TextInputType.emailAddress,
@@ -273,7 +276,7 @@ class _SignUpState extends State<SignUp> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Container(
-                                width: screenwidth * 0.35,
+                                width: screenwidth * 0.32,
                                 margin: EdgeInsets.fromLTRB(55, 20, 0, 0),
                                 child: TextFormField(
                                   keyboardType: TextInputType.emailAddress,
@@ -291,7 +294,7 @@ class _SignUpState extends State<SignUp> {
                                 ),
                               ),
                               Container(
-                                width: screenwidth * 0.35,
+                                width: screenwidth * 0.32,
                                 margin: EdgeInsets.only(top: 20),
                                 child: TextFormField(
                                   keyboardType: TextInputType.emailAddress,
@@ -318,10 +321,10 @@ class _SignUpState extends State<SignUp> {
                           autofocus: false,
                           decoration: InputDecoration(
                             icon: Icon(
-                              Icons.photo_camera_outlined,
+                              Icons.wb_incandescent_sharp,
                               size: 40,
                             ),
-                            hintText: 'ภาพถ่ายหน้าบ้านหรือจุดสังเกต',
+                            hintText: 'จุดสังเกตบริเวณบ้าน',
                             hintStyle:
                                 TextStyle(fontSize: 16, fontFamily: 'Kanit'),
                             contentPadding: EdgeInsets.only(left: 20),

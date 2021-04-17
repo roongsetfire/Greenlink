@@ -13,6 +13,7 @@ class MapSignUp extends StatefulWidget {
 class _MapSignUpState extends State<MapSignUp> {
   Completer<GoogleMapController> _controller = Completer();
   LocationData currentLocation;
+  List<Marker> myMarker = [];
 
   Future<LocationData> getCurrentLocation() async {
     Location location = Location();
@@ -31,7 +32,7 @@ class _MapSignUpState extends State<MapSignUp> {
     currentLocation = await getCurrentLocation();
     controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
       target: LatLng(currentLocation.latitude, currentLocation.longitude),
-      zoom: 16,
+      zoom: 17,
     )));
   }
 
@@ -53,18 +54,62 @@ class _MapSignUpState extends State<MapSignUp> {
         ],
       ),
       body: GoogleMap(
-          myLocationEnabled: true,
-          mapType: MapType.terrain,
-          initialCameraPosition:
-              CameraPosition(target: LatLng(13.7650836, 100.5379664), zoom: 16),
-          onMapCreated: (GoogleMapController controller) {
-            _controller.complete(controller);
-          }),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: _goToMe,
-        label: Text('My location'),
-        icon: Icon(Icons.near_me),
+        myLocationEnabled: true,
+        mapType: MapType.terrain,
+        initialCameraPosition:
+            CameraPosition(target: LatLng(13.7650836, 100.5379664), zoom: 16),
+        onMapCreated: (GoogleMapController controller) {
+          _controller.complete(controller);
+        },
+        markers: Set.from(myMarker),
+        onTap: _handleTap,
+      ),
+      floatingActionButton: Column(
+        children: [
+          Container(
+            width: 200,
+            margin: EdgeInsets.fromLTRB(0, 600, 70, 0),
+            child: FloatingActionButton.extended(
+              onPressed: _goToMe,
+              label: Text(
+                'ไปที่ตำแหน่งปัจจุบัน',
+                style: TextStyle(fontFamily: 'Kanit'),
+              ),
+              icon: Icon(Icons.near_me),
+            ),
+          ),
+          Container(
+            width: 200,
+            margin: EdgeInsets.fromLTRB(0, 20, 70, 0),
+            child: FloatingActionButton.extended(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              label: Text(
+                'บันทึก',
+                style: TextStyle(fontFamily: 'Kanit', fontSize: 18),
+              ),
+              icon: Icon(
+                Icons.add_location_alt_outlined,
+              ),
+            ),
+          )
+        ],
       ),
     );
+  }
+
+  _handleTap(LatLng tappedPoint) {
+    setState(() {
+      print("${tappedPoint.latitude}, ${tappedPoint.longitude}");
+      myMarker = [];
+      myMarker.add(
+        Marker(
+            markerId: MarkerId(tappedPoint.toString()),
+            position: tappedPoint,
+            icon:
+                BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed)),
+      );
+    });
   }
 }

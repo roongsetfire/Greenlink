@@ -102,7 +102,7 @@ class _LoginFirstPageState extends State<LoginFirstPage> {
         color: Colors.lightGreen.shade200,
         child: Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
+            borderRadius: BorderRadius.vertical(bottom: Radius.circular(15)),
             image: DecorationImage(
               image: ExactAssetImage('images/grass.jpg'),
               fit: BoxFit.fill,
@@ -125,25 +125,25 @@ class _LoginFirstPageState extends State<LoginFirstPage> {
   }
 
   //ใส่รูป LogoGreenLink จ้า
-  Padding imageLogo() {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(50, 50, 50, 10),
+  Center imageLogo() {
+    return Center(
       child: Container(
-        height: screenheight * 0.18,
+        margin: EdgeInsets.only(top: screenheight * 0.045),
+        height: screenheight * 0.22,
+        width: screenwidth * 0.45,
         decoration: BoxDecoration(
-            border: Border.all(color: Colors.grey),
+            border: Border.all(color: Colors.yellow.shade300, width: 2),
             image: DecorationImage(
                 image: AssetImage(
-                  'images/LogoGreenlink.jpg',
+                  'images/greenlinknewLOGO.jpg',
                 ),
-                fit: BoxFit.fitWidth),
-            borderRadius: BorderRadius.circular(25),
+                fit: BoxFit.fill),
+            borderRadius: BorderRadius.circular(100),
             boxShadow: [
               BoxShadow(
-                color: Colors.grey.withOpacity(0.8),
-                spreadRadius: 0.5,
+                color: Colors.yellow.withOpacity(0.5),
+                spreadRadius: 7,
                 blurRadius: 3,
-                offset: Offset(0, 8),
               )
             ]),
       ),
