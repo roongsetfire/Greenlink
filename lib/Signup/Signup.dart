@@ -9,6 +9,8 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
   double screenheight;
   double screenwidth;
+  var text = 'คลิกไอคอนด้านซ้ายเพื่อเลือกที่อยู่';
+  var textlatlng = '';
   @override
   Widget build(BuildContext context) {
     final screenheight = MediaQuery.of(context).size.height;
@@ -89,6 +91,10 @@ class _SignUpState extends State<SignUp> {
                     children: [
                       TextFormField(
                         autofocus: false,
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontFamily: 'Kanit',
+                            fontWeight: FontWeight.normal),
                         decoration: InputDecoration(
                           icon: Icon(
                             Icons.account_circle_outlined,
@@ -112,6 +118,10 @@ class _SignUpState extends State<SignUp> {
                             child: TextFormField(
                               keyboardType: TextInputType.emailAddress,
                               autofocus: false,
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  fontFamily: 'Kanit',
+                                  fontWeight: FontWeight.normal),
                               decoration: InputDecoration(
                                 icon: Icon(
                                   Icons.cake_outlined,
@@ -133,6 +143,10 @@ class _SignUpState extends State<SignUp> {
                             child: TextFormField(
                               keyboardType: TextInputType.number,
                               autofocus: false,
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  fontFamily: 'Kanit',
+                                  fontWeight: FontWeight.normal),
                               decoration: InputDecoration(
                                 hintText: 'เดือนเกิด',
                                 hintStyle: TextStyle(
@@ -150,6 +164,10 @@ class _SignUpState extends State<SignUp> {
                             child: TextFormField(
                               keyboardType: TextInputType.number,
                               autofocus: false,
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  fontFamily: 'Kanit',
+                                  fontWeight: FontWeight.normal),
                               decoration: InputDecoration(
                                 hintText: 'ปีเกิด(พศ.)',
                                 hintStyle: TextStyle(
@@ -168,6 +186,10 @@ class _SignUpState extends State<SignUp> {
                         child: TextFormField(
                           keyboardType: TextInputType.emailAddress,
                           autofocus: false,
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontFamily: 'Kanit',
+                              fontWeight: FontWeight.normal),
                           decoration: InputDecoration(
                             icon: Icon(
                               Icons.email_outlined,
@@ -188,6 +210,10 @@ class _SignUpState extends State<SignUp> {
                         child: TextFormField(
                           keyboardType: TextInputType.number,
                           autofocus: false,
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontFamily: 'Kanit',
+                              fontWeight: FontWeight.normal),
                           decoration: InputDecoration(
                             icon: Icon(
                               Icons.phone_android_outlined,
@@ -212,6 +238,10 @@ class _SignUpState extends State<SignUp> {
                               minLines: 3,
                               maxLines: null,
                               autofocus: false,
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  fontFamily: 'Kanit',
+                                  fontWeight: FontWeight.normal),
                               decoration: InputDecoration(
                                 icon: Icon(
                                   Icons.location_city_rounded,
@@ -232,11 +262,15 @@ class _SignUpState extends State<SignUp> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Container(
-                                width: screenwidth * 0.32,
+                                width: screenwidth * 0.33,
                                 margin: EdgeInsets.fromLTRB(55, 20, 0, 0),
                                 child: TextFormField(
                                   keyboardType: TextInputType.number,
                                   autofocus: false,
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontFamily: 'Kanit',
+                                      fontWeight: FontWeight.normal),
                                   inputFormatters: [
                                     LengthLimitingTextInputFormatter(5)
                                   ],
@@ -244,7 +278,8 @@ class _SignUpState extends State<SignUp> {
                                     hintText: 'รหัสไปรษณีย์',
                                     hintStyle: TextStyle(
                                         fontSize: 16, fontFamily: 'Kanit'),
-                                    contentPadding: EdgeInsets.only(left: 20),
+                                    contentPadding:
+                                        EdgeInsets.fromLTRB(20, 0, 20, 0),
                                     border: OutlineInputBorder(
                                         borderRadius:
                                             BorderRadius.circular(10)),
@@ -253,16 +288,21 @@ class _SignUpState extends State<SignUp> {
                                 ),
                               ),
                               Container(
-                                width: screenwidth * 0.32,
+                                width: screenwidth * 0.33,
                                 margin: EdgeInsets.only(top: 20),
                                 child: TextFormField(
                                   keyboardType: TextInputType.emailAddress,
                                   autofocus: false,
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontFamily: 'Kanit',
+                                      fontWeight: FontWeight.normal),
                                   decoration: InputDecoration(
                                     hintText: 'แขวง',
                                     hintStyle: TextStyle(
                                         fontSize: 16, fontFamily: 'Kanit'),
-                                    contentPadding: EdgeInsets.only(left: 20),
+                                    contentPadding:
+                                        EdgeInsets.fromLTRB(20, 0, 20, 0),
                                     border: OutlineInputBorder(
                                         borderRadius:
                                             BorderRadius.circular(10)),
@@ -276,16 +316,21 @@ class _SignUpState extends State<SignUp> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Container(
-                                width: screenwidth * 0.32,
+                                width: screenwidth * 0.33,
                                 margin: EdgeInsets.fromLTRB(55, 20, 0, 0),
                                 child: TextFormField(
                                   keyboardType: TextInputType.emailAddress,
                                   autofocus: false,
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontFamily: 'Kanit',
+                                      fontWeight: FontWeight.normal),
                                   decoration: InputDecoration(
                                     hintText: 'เขต',
                                     hintStyle: TextStyle(
                                         fontSize: 16, fontFamily: 'Kanit'),
-                                    contentPadding: EdgeInsets.only(left: 20),
+                                    contentPadding:
+                                        EdgeInsets.fromLTRB(20, 0, 20, 0),
                                     border: OutlineInputBorder(
                                         borderRadius:
                                             BorderRadius.circular(10)),
@@ -294,16 +339,21 @@ class _SignUpState extends State<SignUp> {
                                 ),
                               ),
                               Container(
-                                width: screenwidth * 0.32,
+                                width: screenwidth * 0.33,
                                 margin: EdgeInsets.only(top: 20),
                                 child: TextFormField(
                                   keyboardType: TextInputType.emailAddress,
                                   autofocus: false,
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontFamily: 'Kanit',
+                                      fontWeight: FontWeight.normal),
                                   decoration: InputDecoration(
                                     hintText: 'จังหวัด',
                                     hintStyle: TextStyle(
                                         fontSize: 16, fontFamily: 'Kanit'),
-                                    contentPadding: EdgeInsets.only(left: 20),
+                                    contentPadding:
+                                        EdgeInsets.fromLTRB(20, 0, 20, 0),
                                     border: OutlineInputBorder(
                                         borderRadius:
                                             BorderRadius.circular(10)),
@@ -319,6 +369,10 @@ class _SignUpState extends State<SignUp> {
                         margin: EdgeInsets.only(top: 20),
                         child: TextFormField(
                           autofocus: false,
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontFamily: 'Kanit',
+                              fontWeight: FontWeight.normal),
                           decoration: InputDecoration(
                             icon: Icon(
                               Icons.wb_incandescent_sharp,
@@ -327,7 +381,7 @@ class _SignUpState extends State<SignUp> {
                             hintText: 'จุดสังเกตบริเวณบ้าน',
                             hintStyle:
                                 TextStyle(fontSize: 16, fontFamily: 'Kanit'),
-                            contentPadding: EdgeInsets.only(left: 20),
+                            contentPadding: EdgeInsets.fromLTRB(20, 0, 20, 0),
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10)),
                             filled: true,
@@ -337,20 +391,25 @@ class _SignUpState extends State<SignUp> {
                       Container(
                         margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
                         child: TextFormField(
+                          controller: TextEditingController(text: textlatlng),
                           autofocus: false,
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontFamily: 'Kanit',
+                              fontWeight: FontWeight.normal),
                           decoration: InputDecoration(
                             icon: InkWell(
-                              child: Icon(
-                                Icons.location_on_outlined,
-                                size: 40,
-                              ),
-                              onTap: () =>
-                                  Navigator.pushNamed(context, '/MapSignUp'),
-                            ),
-                            hintText: 'คลิกไอคอนด้านซ้ายเพื่อเลือกที่อยู่',
+                                child: Icon(
+                                  Icons.location_on_outlined,
+                                  size: 40,
+                                ),
+                                onTap: () {
+                                  _awaitmap(context);
+                                }),
+                            hintText: text,
                             hintStyle:
                                 TextStyle(fontSize: 16, fontFamily: 'Kanit'),
-                            contentPadding: EdgeInsets.only(left: 20),
+                            contentPadding: EdgeInsets.fromLTRB(20, 0, 20, 0),
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10)),
                             filled: true,
@@ -394,5 +453,14 @@ class _SignUpState extends State<SignUp> {
       height: screenheight * size,
       width: screenwidth * size,
     );
+  }
+
+  void _awaitmap(BuildContext context) async {
+    // start the SecondScreen and wait for it to finish with a result
+    final result = await Navigator.pushNamed(context, '/MapSignUp');
+    // after the SecondScreen result comes back update the Text widget with it
+    setState(() {
+      textlatlng = result;
+    });
   }
 }

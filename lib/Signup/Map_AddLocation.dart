@@ -14,6 +14,7 @@ class _MapSignUpState extends State<MapSignUp> {
   Completer<GoogleMapController> _controller = Completer();
   LocationData currentLocation;
   List<Marker> myMarker = [];
+  String locationPoint;
 
   Future<LocationData> getCurrentLocation() async {
     Location location = Location();
@@ -83,7 +84,7 @@ class _MapSignUpState extends State<MapSignUp> {
             margin: EdgeInsets.fromLTRB(0, 20, 70, 0),
             child: FloatingActionButton.extended(
               onPressed: () {
-                Navigator.pop(context);
+                _sendDataBack(context);
               },
               label: Text(
                 'บันทึก',
@@ -102,6 +103,8 @@ class _MapSignUpState extends State<MapSignUp> {
   _handleTap(LatLng tappedPoint) {
     setState(() {
       print("${tappedPoint.latitude}, ${tappedPoint.longitude}");
+      locationPoint =
+          'Lat : ${tappedPoint.latitude.toString()}, Lng : ${tappedPoint.longitude.toString()}';
       myMarker = [];
       myMarker.add(
         Marker(
@@ -111,5 +114,9 @@ class _MapSignUpState extends State<MapSignUp> {
                 BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed)),
       );
     });
+  }
+
+  void _sendDataBack(BuildContext context) {
+    Navigator.pop(context, locationPoint);
   }
 }
