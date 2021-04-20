@@ -30,66 +30,71 @@ class _LoginFirstPageState extends State<LoginFirstPage> {
     screenwidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-        body: Container(
-      // decoration: BoxDecoration(
-      //   gradient: LinearGradient(
-      //       begin: Alignment.topCenter,
-      //       end: Alignment.bottomCenter,
-      //       colors: [Colors.white12, Colors.green.shade300]),
-      // ),
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            Stack(
-              children: [
-                backgroundImage(),
-                imageLogo(),
-              ],
-            ),
-            Container(
-              height: screenheight * 0.72,
-              decoration: BoxDecoration(color: Colors.lightGreen.shade200),
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(35, 0, 35, 0),
-                child: Column(
-                  children: [
-                    //เข้าสู่ระบบหรือลงทะเบียน
-                    buildtextsignup(),
-                    buildSizedBox(0.01),
-
-                    //continue with facebook
-                    facebookSignin(),
-                    buildSizedBox(0.01),
-
-                    //continue with apple
-                    appleSignin(),
-                    buildSizedBox(0.01),
-
-                    //continue with google
-                    googleSignin(),
-
-                    //ตรงส่วนนี้เป็นขีดยาวคำว่า or
-                    Column(children: [
+        body: GestureDetector(
+      onTap: () {
+        FocusScope.of(context).requestFocus(new FocusNode());
+      },
+      child: Container(
+        // decoration: BoxDecoration(
+        //   gradient: LinearGradient(
+        //       begin: Alignment.topCenter,
+        //       end: Alignment.bottomCenter,
+        //       colors: [Colors.white12, Colors.green.shade300]),
+        // ),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Stack(
+                children: [
+                  backgroundImage(),
+                  imageLogo(),
+                ],
+              ),
+              Container(
+                height: screenheight * 0.72,
+                decoration: BoxDecoration(color: Colors.lightGreen.shade200),
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(35, 0, 35, 0),
+                  child: Column(
+                    children: [
+                      //เข้าสู่ระบบหรือลงทะเบียน
+                      buildtextsignup(),
                       buildSizedBox(0.01),
-                      orLabel(),
-                    ]),
 
-                    //email and password textfield
-                    emailAndpasswordForm(),
+                      //continue with facebook
+                      facebookSignin(),
+                      buildSizedBox(0.01),
 
-                    // forgot password
-                    Align(
-                      child: forgotLabel(),
-                      alignment: Alignment.centerLeft,
-                    ),
+                      //continue with apple
+                      appleSignin(),
+                      buildSizedBox(0.01),
 
-                    // Checkbox remember me and login button
-                    checkboxAndloginbutton(),
-                  ],
+                      //continue with google
+                      googleSignin(),
+
+                      //ตรงส่วนนี้เป็นขีดยาวคำว่า or
+                      Column(children: [
+                        buildSizedBox(0.01),
+                        orLabel(),
+                      ]),
+
+                      //email and password textfield
+                      emailAndpasswordForm(),
+
+                      // forgot password
+                      Align(
+                        child: forgotLabel(),
+                        alignment: Alignment.centerLeft,
+                      ),
+
+                      // Checkbox remember me and login button
+                      checkboxAndloginbutton(),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     ));
@@ -393,6 +398,11 @@ class _LoginFirstPageState extends State<LoginFirstPage> {
   Widget loginButton() {
     return ElevatedButton(
       onPressed: () {
+        if (_formkey.currentState.validate()) {
+          Navigator.pushNamedAndRemoveUntil(
+              context, '/Checklist1', (_) => false);
+        }
+
         setState(() {
           if (_formkey.currentState.validate()) {
             print("Validations are correct.");
