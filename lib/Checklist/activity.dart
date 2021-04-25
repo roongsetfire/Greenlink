@@ -30,6 +30,7 @@ class _ActivityState extends State<Activity> {
               //row 1
               Container(
                 margin: EdgeInsets.only(bottom: 5),
+                padding: EdgeInsets.fromLTRB(5, 0, 15, 0),
                 height: 55,
                 width: double.infinity,
                 decoration: BoxDecoration(
@@ -39,40 +40,40 @@ class _ActivityState extends State<Activity> {
                       checkbox[0] ? Colors.lightGreen.shade100 : Colors.white,
                 ),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Checkbox(
-                      activeColor: Colors.green.shade600,
-                      value: checkbox[0],
-                      onChanged: (value) {
-                        setState(() {
-                          checkbox[0] = value;
-                        });
-                      },
-                    ),
-                    Container(
-                      margin: EdgeInsets.fromLTRB(5, 0, 0, 0),
-                      padding: EdgeInsets.only(left: 0),
-                      width: 175,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'รับนัดล่วงหน้า',
-                            style: TextStyle(
-                                fontFamily: 'Kanit',
-                                fontSize: 18,
-                                color: Colors.grey.shade600),
-                          ),
-                          Text(
-                            'จะหมดสิทธิ์ในอีก xxxxx',
-                            style: TextStyle(
-                                fontFamily: 'Kanit',
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
+                    Row(
+                      children: [
+                        Checkbox(
+                          activeColor: Colors.green.shade600,
+                          value: checkbox[0],
+                          onChanged: (value) {
+                            setState(() {
+                              checkbox[0] = value;
+                            });
+                          },
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'รับนัดล่วงหน้า',
+                              style: TextStyle(
+                                  fontFamily: 'Kanit',
+                                  fontSize: 18,
+                                  color: Colors.grey.shade600),
+                            ),
+                            Text(
+                              'จะหมดสิทธิ์ในอีก xxxxxxxxxxxxxx',
+                              style: TextStyle(
+                                  fontFamily: 'Kanit',
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                     Container(
                       child: Column(
@@ -82,14 +83,14 @@ class _ActivityState extends State<Activity> {
                             'จำนวนสิทธิ',
                             style: TextStyle(
                                 fontFamily: 'Kanit',
-                                fontSize: 14,
+                                fontSize: 13,
                                 color: Colors.grey.shade600),
                           ),
                           Text(
                             'x ใบ',
                             style: TextStyle(
                                 fontFamily: 'Kanit',
-                                fontSize: 14,
+                                fontSize: 13,
                                 color: Colors.grey.shade600),
                           )
                         ],
@@ -101,6 +102,7 @@ class _ActivityState extends State<Activity> {
               //row 2
               Container(
                 margin: EdgeInsets.only(bottom: 5),
+                padding: EdgeInsets.fromLTRB(5, 0, 15, 0),
                 height: 55,
                 width: double.infinity,
                 decoration: BoxDecoration(
@@ -110,48 +112,46 @@ class _ActivityState extends State<Activity> {
                       checkbox[1] ? Colors.lightGreen.shade100 : Colors.white,
                 ),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Checkbox(
-                      activeColor: Colors.green.shade600,
-                      value: checkbox[1],
-                      onChanged: (value) {
-                        setState(() {
-                          checkbox[1] = value;
-                        });
-                      },
+                    Row(
+                      children: [
+                        Checkbox(
+                          activeColor: Colors.green.shade600,
+                          value: checkbox[1],
+                          onChanged: (value) {
+                            setState(() {
+                              checkbox[1] = value;
+                            });
+                          },
+                        ),
+                        Text(
+                          'ยืนยันน้ำหนัก',
+                          style: TextStyle(
+                              fontFamily: 'Kanit',
+                              fontSize: 18,
+                              color: Colors.grey.shade600),
+                        ),
+                      ],
                     ),
-                    Container(
-                      margin: EdgeInsets.fromLTRB(5, 0, 0, 0),
-                      padding: EdgeInsets.only(left: 0),
-                      child: Text(
-                        'ยืนยันน้ำหนัก',
-                        style: TextStyle(
-                            fontFamily: 'Kanit',
-                            fontSize: 18,
-                            color: Colors.grey.shade600),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(left: 80),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'จำนวนสิทธิ',
-                            style: TextStyle(
-                                fontFamily: 'Kanit',
-                                fontSize: 14,
-                                color: Colors.grey.shade600),
-                          ),
-                          Text(
-                            'x ใบ',
-                            style: TextStyle(
-                                fontFamily: 'Kanit',
-                                fontSize: 14,
-                                color: Colors.grey.shade600),
-                          )
-                        ],
-                      ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'จำนวนสิทธิ',
+                          style: TextStyle(
+                              fontFamily: 'Kanit',
+                              fontSize: 13,
+                              color: Colors.grey.shade600),
+                        ),
+                        Text(
+                          'x ใบ',
+                          style: TextStyle(
+                              fontFamily: 'Kanit',
+                              fontSize: 13,
+                              color: Colors.grey.shade600),
+                        )
+                      ],
                     )
                   ],
                 ),
@@ -159,6 +159,7 @@ class _ActivityState extends State<Activity> {
               //row 3
               Container(
                 margin: EdgeInsets.only(bottom: 5),
+                padding: EdgeInsets.fromLTRB(5, 0, 15, 0),
                 height: 55,
                 width: double.infinity,
                 decoration: BoxDecoration(
@@ -168,32 +169,27 @@ class _ActivityState extends State<Activity> {
                       checkbox[2] ? Colors.lightGreen.shade100 : Colors.white,
                 ),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Checkbox(
-                      activeColor: Colors.green.shade600,
-                      value: checkbox[2],
-                      onChanged: (value) {
-                        setState(() {
-                          checkbox[2] = value;
-                        });
-                      },
-                    ),
-                    Container(
-                      margin: EdgeInsets.fromLTRB(5, 0, 0, 0),
-                      padding: EdgeInsets.only(left: 0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'ถ่ายรูปหน้าบ้าน',
-                            style: TextStyle(
-                                fontFamily: 'Kanit',
-                                fontSize: 18,
-                                color: Colors.grey.shade600),
-                          ),
-                        ],
-                      ),
+                    Row(
+                      children: [
+                        Checkbox(
+                          activeColor: Colors.green.shade600,
+                          value: checkbox[2],
+                          onChanged: (value) {
+                            setState(() {
+                              checkbox[2] = value;
+                            });
+                          },
+                        ),
+                        Text(
+                          'ถ่ายรูปหน้าบ้าน',
+                          style: TextStyle(
+                              fontFamily: 'Kanit',
+                              fontSize: 18,
+                              color: Colors.grey.shade600),
+                        ),
+                      ],
                     ),
                     Container(
                       margin: EdgeInsets.only(left: 65),
@@ -204,14 +200,14 @@ class _ActivityState extends State<Activity> {
                             'จำนวนสิทธิ',
                             style: TextStyle(
                                 fontFamily: 'Kanit',
-                                fontSize: 14,
+                                fontSize: 13,
                                 color: Colors.grey.shade600),
                           ),
                           Text(
                             'x ใบ',
                             style: TextStyle(
                                 fontFamily: 'Kanit',
-                                fontSize: 14,
+                                fontSize: 13,
                                 color: Colors.grey.shade600),
                           )
                         ],
@@ -222,8 +218,8 @@ class _ActivityState extends State<Activity> {
               ),
               //row 4
               Container(
-                margin: EdgeInsets.only(bottom: 5),
                 height: 55,
+                padding: EdgeInsets.fromLTRB(5, 0, 15, 0),
                 width: double.infinity,
                 decoration: BoxDecoration(
                   border: Border.all(width: 1.5, color: Colors.green),
@@ -231,52 +227,44 @@ class _ActivityState extends State<Activity> {
                   color: Colors.lightGreen.shade100,
                 ),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                        margin: EdgeInsets.fromLTRB(10, 0, 7, 0),
-                        child: Icon(
-                          Icons.link_rounded,
-                          size: 30,
-                          color: Colors.grey.shade700,
-                        )),
-                    Container(
-                      margin: EdgeInsets.fromLTRB(5, 0, 0, 0),
-                      padding: EdgeInsets.only(left: 0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'ชวนเพื่อน',
-                            style: TextStyle(
-                                fontFamily: 'Kanit',
-                                fontSize: 18,
-                                color: Colors.grey.shade600),
-                          ),
-                        ],
-                      ),
+                    Row(
+                      children: [
+                        Container(
+                            margin: EdgeInsets.fromLTRB(10, 0, 7, 0),
+                            child: Icon(
+                              Icons.link_rounded,
+                              size: 30,
+                              color: Colors.grey.shade700,
+                            )),
+                        Text(
+                          'ชวนเพื่อน',
+                          style: TextStyle(
+                              fontFamily: 'Kanit',
+                              fontSize: 18,
+                              color: Colors.grey.shade600),
+                        ),
+                      ],
                     ),
-                    Container(
-                      margin: EdgeInsets.only(left: 105),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'จำนวนสิทธิ',
-                            style: TextStyle(
-                                fontFamily: 'Kanit',
-                                fontSize: 14,
-                                color: Colors.grey.shade600),
-                          ),
-                          Text(
-                            'ไม่จำกัด',
-                            style: TextStyle(
-                                fontFamily: 'Kanit',
-                                fontSize: 14,
-                                color: Colors.grey.shade600),
-                          )
-                        ],
-                      ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'จำนวนสิทธิ',
+                          style: TextStyle(
+                              fontFamily: 'Kanit',
+                              fontSize: 13,
+                              color: Colors.grey.shade600),
+                        ),
+                        Text(
+                          'ไม่จำกัด',
+                          style: TextStyle(
+                              fontFamily: 'Kanit',
+                              fontSize: 13,
+                              color: Colors.grey.shade600),
+                        )
+                      ],
                     )
                   ],
                 ),

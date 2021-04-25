@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_bin/Checklist/activity.dart';
+import 'package:project_bin/Checklist/ticket.dart';
 import 'package:project_bin/Widget-Other/BottomBar.dart';
 import 'package:project_bin/Widget-Other/Drawer.dart';
 
@@ -10,10 +11,25 @@ class Checklist1 extends StatefulWidget {
 
 class _Checklist1State extends State<Checklist1> {
   List<bool> pressed = [true, false, false];
-
+  List<String> months = [
+    'มกราคม',
+    'กุมภาพันธ์',
+    'มีนาคม',
+    'เมษายน',
+    'พฤษภาคม',
+    'มิถุนายน',
+    'กรกฎาคม',
+    'สิงหาคม',
+    'กันยายน',
+    'ตุลาคม',
+    'พฤษจิกายน',
+    'ธันวาคม'
+  ];
+  int chooseMonth = int.parse(DateTime.now().toString().substring(5, 7));
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       // endDrawerEnableOpenDragGesture: false,
       drawer: ClipRRect(
         borderRadius: BorderRadius.only(
@@ -59,7 +75,7 @@ class _Checklist1State extends State<Checklist1> {
         backgroundColor: Colors.lightGreen.shade800,
       ),
       body: SingleChildScrollView(
-              child: Container(
+        child: Container(
           color: Colors.white,
           child: Column(
             children: [
@@ -69,12 +85,12 @@ class _Checklist1State extends State<Checklist1> {
                 child: Row(
                   children: [
                     Image(
-                      width: MediaQuery.of(context).size.width/2,
+                      width: MediaQuery.of(context).size.width / 2,
                       image: new AssetImage("images/gold.jpg"),
                       fit: BoxFit.fitWidth,
                     ),
                     Image(
-                      width: MediaQuery.of(context).size.width/2,
+                      width: MediaQuery.of(context).size.width / 2,
                       image: new AssetImage("images/bin.jpg"),
                       fit: BoxFit.fitWidth,
                     ),
@@ -93,12 +109,20 @@ class _Checklist1State extends State<Checklist1> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          setState(() {
+                            if (chooseMonth >= 2) {
+                              chooseMonth -= 1;
+                            } else {
+                              chooseMonth = 12;
+                            }
+                          });
+                        },
                         icon: Icon(
                           Icons.arrow_back_ios_rounded,
                         )),
                     Text(
-                      'ประจำเดือน มีนาคม',
+                      'ประจำเดือน ${months[chooseMonth - 1]}',
                       style: TextStyle(
                         fontFamily: 'Kanit',
                         decoration: TextDecoration.underline,
@@ -106,7 +130,15 @@ class _Checklist1State extends State<Checklist1> {
                       ),
                     ),
                     IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          setState(() {
+                            if (chooseMonth < 12) {
+                              chooseMonth += 1;
+                            } else {
+                              chooseMonth = 1;
+                            }
+                          });
+                        },
                         icon: Icon(Icons.arrow_forward_ios_rounded))
                   ],
                 ),
@@ -209,11 +241,12 @@ class _Checklist1State extends State<Checklist1> {
               ),
               // body คุณได้รับตั๋ว...
               Container(
-                  child: pressed[0]
-                      ? Activity()
-                      : pressed[1]
-                          ? Container()
-                          : Container()),
+                child: pressed[0]
+                    ? Activity()
+                    : pressed[1]
+                        ? Ticket()
+                        : Container(),
+              ),
             ],
           ),
         ),
