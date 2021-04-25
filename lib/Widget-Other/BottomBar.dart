@@ -35,7 +35,7 @@ class _BottomBarState extends State<BottomBar> {
           color: Colors.white,
         ),
         Icon(
-          Icons.attach_money_sharp,
+          Icons.volunteer_activism,
           size: 30,
           color: Colors.white,
         ),
