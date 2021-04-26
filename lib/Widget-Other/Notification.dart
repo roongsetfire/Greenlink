@@ -40,6 +40,12 @@ class _NotificateState extends State<Notificate> {
                 setState(() {
                   edit = !edit;
                 });
+                if (!edit) {
+                  setState(() {
+                    checklist = List.generate(
+                        listNotification.length, (index) => false);
+                  });
+                }
               },
               child: Text(
                 'แก้ไข',
@@ -57,7 +63,10 @@ class _NotificateState extends State<Notificate> {
           ? Center(
               child: Text(
                 'ไม่มีแจ้งเตือนที่เหลืออยู่',
-                style: TextStyle(fontFamily: 'Kanit',fontSize: 30,color: Colors.lightGreen.shade700),
+                style: TextStyle(
+                    fontFamily: 'Kanit',
+                    fontSize: 30,
+                    color: Colors.lightGreen.shade700),
               ),
             )
           : Column(
@@ -172,7 +181,7 @@ class _NotificateState extends State<Notificate> {
                                           for (var i = 0;
                                               i < checklist.length;
                                               i++) {
-                                            checklist[i] = !checklist[i];
+                                            checklist[i] = true;
                                           }
                                         });
                                       }
@@ -224,7 +233,6 @@ class _NotificateState extends State<Notificate> {
                                         // print(listNotification);
                                         // print(checklist);
                                       }
-                                      print(listNotification);
                                     },
                                     child: Text(
                                       'ลบ',
