@@ -73,7 +73,9 @@ class _DrawMenu1State extends State<DrawMenu1> {
                   createDrawerItem(
                       icon: Icons.notifications_active_rounded,
                       text: 'แจ้งเตือน',
-                      onTap: () {}),
+                      onTap: () {
+                        Navigator.pushNamed(context, '/Notification');
+                      }),
                   createDrawerItem(
                       icon: Icons.settings,
                       text: 'ตั้งค่า',
