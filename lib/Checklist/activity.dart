@@ -61,7 +61,7 @@ class _ActivityState extends State<Activity> {
                               'รับนัดล่วงหน้า',
                               style: TextStyle(
                                   fontFamily: 'Kanit',
-                                  fontSize: 18,
+                                  fontSize: 16,
                                   color: Colors.grey.shade600),
                             ),
                             Text(
@@ -129,7 +129,7 @@ class _ActivityState extends State<Activity> {
                           'ยืนยันน้ำหนัก',
                           style: TextStyle(
                               fontFamily: 'Kanit',
-                              fontSize: 18,
+                              fontSize: 16,
                               color: Colors.grey.shade600),
                         ),
                       ],
@@ -186,7 +186,7 @@ class _ActivityState extends State<Activity> {
                           'ถ่ายรูปหน้าบ้าน',
                           style: TextStyle(
                               fontFamily: 'Kanit',
-                              fontSize: 18,
+                              fontSize: 16,
                               color: Colors.grey.shade600),
                         ),
                       ],
@@ -242,7 +242,7 @@ class _ActivityState extends State<Activity> {
                           'ชวนเพื่อน',
                           style: TextStyle(
                               fontFamily: 'Kanit',
-                              fontSize: 18,
+                              fontSize: 16,
                               color: Colors.grey.shade600),
                         ),
                       ],

@@ -49,7 +49,7 @@ class _MapSignUpState extends State<MapSignUp> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Add Location"),
+        title: Text("จิ้มเพื่อเลือกที่อยู่ปัจจุบัน",style: TextStyle(fontFamily: 'Kanit'),),
         actions: [
           IconButton(onPressed: _zoomOutToBangkok, icon: Icon(Icons.home))
         ],
@@ -83,15 +83,21 @@ class _MapSignUpState extends State<MapSignUp> {
             width: 200,
             margin: EdgeInsets.fromLTRB(0, 20, 70, 0),
             child: FloatingActionButton.extended(
+              shape: StadiumBorder(
+                side: BorderSide(
+                  color: Colors.blue,width: 6
+                )
+              ),
+              backgroundColor: Colors.white,
               onPressed: () {
                 _sendDataBack(context);
               },
               label: Text(
                 'บันทึก',
-                style: TextStyle(fontFamily: 'Kanit', fontSize: 18),
+                style: TextStyle(fontFamily: 'Kanit', fontSize: 20,color: Colors.blue,fontWeight: FontWeight.bold),
               ),
               icon: Icon(
-                Icons.add_location_alt_outlined,
+                Icons.add_location_alt_outlined,color: Colors.blue,
               ),
             ),
           )

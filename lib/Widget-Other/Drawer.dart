@@ -75,7 +75,11 @@ class _DrawMenu1State extends State<DrawMenu1> {
                       text: 'แจ้งเตือน',
                       onTap: () {}),
                   createDrawerItem(
-                      icon: Icons.settings, text: 'ตั้งค่า', onTap: () {}),
+                      icon: Icons.settings,
+                      text: 'ตั้งค่า',
+                      onTap: () {
+                        Navigator.pushNamed(context, '/Setting');
+                      }),
                   createDrawerItem(
                       icon: Icons.contact_support_rounded,
                       text: 'ติดต่อเรา',

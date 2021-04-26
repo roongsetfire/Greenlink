@@ -7,6 +7,7 @@ class BottomBar extends StatefulWidget {
 }
 
 class _BottomBarState extends State<BottomBar> {
+  int currentpage = 0;
   @override
   Widget build(BuildContext context) {
     return CurvedNavigationBar(
@@ -41,8 +42,10 @@ class _BottomBarState extends State<BottomBar> {
         ),
       ],
       onTap: (index) {
-        if (index == 0) {
-          Navigator.pushNamed(context, '/SignUp');
+        if (currentpage != index && index == 0) {
+          Navigator.pushNamed(context, '/Checklist1');
+        } else if (currentpage != index && index == 1) {
+          currentpage = 1;
         }
       },
     );

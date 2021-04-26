@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_bin/Checklist/activity.dart';
+import 'package:project_bin/Checklist/reward.dart';
 import 'package:project_bin/Checklist/ticket.dart';
 import 'package:project_bin/Widget-Other/BottomBar.dart';
 import 'package:project_bin/Widget-Other/Drawer.dart';
@@ -26,6 +27,7 @@ class _Checklist1State extends State<Checklist1> {
     'ธันวาคม'
   ];
   int chooseMonth = int.parse(DateTime.now().toString().substring(5, 7));
+  int chooseyear = int.parse(DateTime.now().toString().substring(0, 4)) + 543;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -115,6 +117,7 @@ class _Checklist1State extends State<Checklist1> {
                               chooseMonth -= 1;
                             } else {
                               chooseMonth = 12;
+                              chooseyear -= 1;
                             }
                           });
                         },
@@ -122,7 +125,7 @@ class _Checklist1State extends State<Checklist1> {
                           Icons.arrow_back_ios_rounded,
                         )),
                     Text(
-                      'ประจำเดือน ${months[chooseMonth - 1]}',
+                      'ประจำเดือน ${months[chooseMonth - 1]} $chooseyear',
                       style: TextStyle(
                         fontFamily: 'Kanit',
                         decoration: TextDecoration.underline,
@@ -136,6 +139,7 @@ class _Checklist1State extends State<Checklist1> {
                               chooseMonth += 1;
                             } else {
                               chooseMonth = 1;
+                              chooseyear += 1;
                             }
                           });
                         },
@@ -245,7 +249,7 @@ class _Checklist1State extends State<Checklist1> {
                     ? Activity()
                     : pressed[1]
                         ? Ticket()
-                        : Container(),
+                        : Reward(),
               ),
             ],
           ),
