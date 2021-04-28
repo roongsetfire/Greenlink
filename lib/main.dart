@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+
 import 'package:project_bin/router.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // Root of Application.

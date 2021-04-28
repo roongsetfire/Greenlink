@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class Ticket extends StatefulWidget {
+  //callback เป็นการบอกว่าเมื่อกดแล้วจะเปลี่ยน boolean ให้เป็น true ให้กลับไปเรียกหน้าเลือกเลขหวยให้แสดง
+  final VoidCallback onPressed;
+  Ticket({this.onPressed});
   @override
   _TicketState createState() => _TicketState();
 }
@@ -66,7 +69,10 @@ class _TicketState extends State<Ticket> {
                     shape: MaterialStateProperty.all(RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                     ))),
-                onPressed: () {},
+                onPressed: () {
+                  //ใช้ร่วมกับ callback เช็คว่ากดรึยัง
+                  widget.onPressed();
+                },
                 child: Text(
                   'เลือกหมายเลข',
                   style: TextStyle(fontFamily: 'Kanit', fontSize: 18),
@@ -82,10 +88,9 @@ class _TicketState extends State<Ticket> {
       height: 45,
       width: double.infinity,
       decoration: BoxDecoration(
-        border: Border.all(width: 1.5, color: Colors.green),
-        borderRadius: BorderRadius.circular(10),
-        color: Colors.lightGreen.shade50
-      ),
+          border: Border.all(width: 1.5, color: Colors.green),
+          borderRadius: BorderRadius.circular(10),
+          color: Colors.lightGreen.shade50),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

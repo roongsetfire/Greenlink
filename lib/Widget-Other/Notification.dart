@@ -22,6 +22,7 @@ class _NotificateState extends State<Notificate> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //หลักๆในหน้านี้จะมี 2 แบบคือแบบกดแก้ไข กับแบบยังไม่กด กดแก้ไขแล้วจะมีปุ่ม 2 ปุ่มด้านล่าง
       //แถบ appbar บนสุด
       appBar: AppBar(
         elevation: 10,
@@ -221,13 +222,15 @@ class _NotificateState extends State<Notificate> {
                                         }
 
                                         setState(() {
+                                          //วาดใหม่เพื่อให้หน้ามัน update
+
                                           listNotification = listRemaining;
-                                          listColor = List.generate(
-                                              listNotification.length,
-                                              (index) => Colors.white);
                                           checklist = List.generate(
                                               listNotification.length,
                                               (index) => false);
+                                          listColor = List.generate(
+                                              listNotification.length,
+                                              (index) => Colors.white);
                                         });
                                         //ลอง uncomment 2 ล่างดูถ้าเกิดสงสัย
                                         // print(listNotification);
