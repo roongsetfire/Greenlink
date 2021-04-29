@@ -398,16 +398,15 @@ class _LoginFirstPageState extends State<LoginFirstPage> {
   Widget loginButton() {
     return ElevatedButton(
       onPressed: () {
-        if (_formkey.currentState.validate()) {
-          Navigator.pushNamedAndRemoveUntil(
-              context, '/Checklist1', (_) => false);
-        }
+        // if (_formkey.currentState.validate()) {
+        Navigator.pushNamedAndRemoveUntil(context, '/Checklist1', (_) => false);
+        // }
 
-        setState(() {
-          if (_formkey.currentState.validate()) {
-            print("Validations are correct.");
-          }
-        });
+        // setState(() {
+        //   if (_formkey.currentState.validate()) {
+        //     print("Validations are correct.");
+        //   }
+        // });
       },
       style: ElevatedButton.styleFrom(
           enableFeedback: true,
