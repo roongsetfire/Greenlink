@@ -26,6 +26,7 @@ class _ActivityState extends State<Activity> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.end,
+            //แต่ละ list กด checkbox แล้ว จะมีสีพื้นหลังขึ้นและจะ check
             children: [
               //row 1
               Container(

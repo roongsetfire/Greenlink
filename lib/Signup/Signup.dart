@@ -9,8 +9,8 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
   double screenheight;
   double screenwidth;
-  var text = 'คลิกไอคอนด้านซ้ายเพื่อเลือกที่อยู่';
-  var textlatlng = '';
+  String text = 'คลิกไอคอนด้านซ้ายเพื่อเลือกที่อยู่';
+  String textlatlng = '';
   @override
   Widget build(BuildContext context) {
     final screenheight = MediaQuery.of(context).size.height;
@@ -18,6 +18,7 @@ class _SignUpState extends State<SignUp> {
     return Scaffold(
       body: GestureDetector(
         onTap: () {
+          // กดข้างนอกเพื่อออกจากแป้นพิม
           FocusScope.of(context).requestFocus(new FocusNode());
         },
         child: SingleChildScrollView(
@@ -30,6 +31,7 @@ class _SignUpState extends State<SignUp> {
                 child: Container(
                   height: screenheight * 0.225,
                   decoration: BoxDecoration(boxShadow: [
+                    //วาดเงาของรูปหญ้าข้างบน
                     BoxShadow(
                       color: Colors.grey.withOpacity(0.5),
                       spreadRadius: 1,
@@ -52,6 +54,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ),
               ),
+              //ใส่แต่ละ widget แบบเลือกตำแหน่ง
               Positioned(
                   top: 140,
                   left: 70,
@@ -93,6 +96,7 @@ class _SignUpState extends State<SignUp> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        //ชื่อ-นามสกุล
                         TextFormField(
                           autofocus: false,
                           style: TextStyle(
@@ -113,6 +117,7 @@ class _SignUpState extends State<SignUp> {
                             filled: true,
                           ),
                         ),
+                        //เพศ-เดือนเกิด-ปีเกิด
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -185,6 +190,7 @@ class _SignUpState extends State<SignUp> {
                             ),
                           ],
                         ),
+                        //email
                         Container(
                           margin: EdgeInsets.only(top: 20),
                           child: TextFormField(
@@ -209,6 +215,7 @@ class _SignUpState extends State<SignUp> {
                             ),
                           ),
                         ),
+                        // Phone number
                         Container(
                           margin: EdgeInsets.only(top: 20),
                           child: TextFormField(
@@ -233,8 +240,10 @@ class _SignUpState extends State<SignUp> {
                             ),
                           ),
                         ),
+
                         Column(
                           children: [
+                            // address
                             Container(
                               margin: EdgeInsets.only(top: 20),
                               child: TextFormField(
@@ -262,6 +271,7 @@ class _SignUpState extends State<SignUp> {
                                 ),
                               ),
                             ),
+                            //zip code
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -291,6 +301,7 @@ class _SignUpState extends State<SignUp> {
                                     ),
                                   ),
                                 ),
+                                //แขวง
                                 Container(
                                   width: screenwidth * 0.33,
                                   margin: EdgeInsets.only(top: 20),
@@ -319,6 +330,7 @@ class _SignUpState extends State<SignUp> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
+                                //เขต
                                 Container(
                                   width: screenwidth * 0.33,
                                   margin: EdgeInsets.fromLTRB(55, 20, 0, 0),
@@ -342,6 +354,7 @@ class _SignUpState extends State<SignUp> {
                                     ),
                                   ),
                                 ),
+                                //จังหวัด
                                 Container(
                                   width: screenwidth * 0.33,
                                   margin: EdgeInsets.only(top: 20),
@@ -369,6 +382,7 @@ class _SignUpState extends State<SignUp> {
                             ),
                           ],
                         ),
+                        //จุดสังเกตบริเวณบ้าน
                         Container(
                           margin: EdgeInsets.only(top: 20),
                           child: TextFormField(
@@ -392,6 +406,7 @@ class _SignUpState extends State<SignUp> {
                             ),
                           ),
                         ),
+                        //ตำแหน่งที่อยู่
                         Container(
                           margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
                           child: TextFormField(
@@ -408,6 +423,7 @@ class _SignUpState extends State<SignUp> {
                                     size: 40,
                                   ),
                                   onTap: () {
+                                    //คลิกไอคอนแล้วรอแผนที่
                                     _awaitmap(context);
                                   }),
                               hintText: text,
@@ -420,6 +436,7 @@ class _SignUpState extends State<SignUp> {
                             ),
                           ),
                         ),
+                        //ปุ่มบันทึก
                         Container(
                           margin: EdgeInsets.fromLTRB(0, 20, 0, 20),
                           height: screenheight * 0.06,

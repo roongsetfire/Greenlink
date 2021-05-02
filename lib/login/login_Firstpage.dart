@@ -32,6 +32,7 @@ class _LoginFirstPageState extends State<LoginFirstPage> {
     return Scaffold(
         body: GestureDetector(
       onTap: () {
+        // กดด้านนอกแป้นพิมแล้วจะ cancel แป้นพิม
         FocusScope.of(context).requestFocus(new FocusNode());
       },
       child: Container(
@@ -186,6 +187,7 @@ class _LoginFirstPageState extends State<LoginFirstPage> {
   //รวมทั้ง email and password
   Form emailAndpasswordForm() {
     return Form(
+      //เก็บ key ไว้ validation
       key: _formkey,
       child: Column(children: [
         Align(

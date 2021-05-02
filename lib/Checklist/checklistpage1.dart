@@ -22,6 +22,7 @@ class _Checklist1State extends State<Checklist1> {
   }
 
   //ตรงนี้เอาไว้เช็คตอนกด icon
+  //ใส่ list month
   List<bool> pressed = [true, false, false];
   List<String> months = [
     'มกราคม',

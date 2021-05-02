@@ -15,7 +15,7 @@ class _MapSignUpState extends State<MapSignUp> {
   LocationData currentLocation;
   List<Marker> myMarker = [];
   String locationPoint;
-
+  // set permission
   Future<LocationData> getCurrentLocation() async {
     Location location = Location();
     try {
@@ -28,6 +28,7 @@ class _MapSignUpState extends State<MapSignUp> {
     }
   }
 
+  // function gotomycurrentPosition กดแล้วไปที่อยู่ปัจจุบัน
   Future _goToMe() async {
     final GoogleMapController controller = await _controller.future;
     currentLocation = await getCurrentLocation();
@@ -37,6 +38,7 @@ class _MapSignUpState extends State<MapSignUp> {
     )));
   }
 
+  // กดแล้วซูมไปยังหน้ากรุงเทพ
   Future _zoomOutToBangkok() async {
     final GoogleMapController controller = await _controller.future;
     currentLocation = await getCurrentLocation();
@@ -49,12 +51,20 @@ class _MapSignUpState extends State<MapSignUp> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("จิ้มเพื่อเลือกที่อยู่ปัจจุบัน",style: TextStyle(fontFamily: 'Kanit'),),
+        title: Text(
+          "จิ้มเพื่อเลือกที่อยู่ปัจจุบัน",
+          style: TextStyle(fontFamily: 'Kanit'),
+        ),
         actions: [
           IconButton(onPressed: _zoomOutToBangkok, icon: Icon(Icons.home))
         ],
       ),
+      // เซ็ตค่าเริ่มต้น googlemap
       body: GoogleMap(
+        /* เอา toolbar 2 ตัวล่างออกเพราะถ้าใส่เข้ามาเวลากดไปโดนมันจะ 
+         route ไปหน้า map ในgoogle แล้วกลับมาแผนที่จะบัคไม่ขึ้น map */
+        mapToolbarEnabled: false,
+        //เข้าถึงตำแหน่งเราได้
         myLocationEnabled: true,
         mapType: MapType.terrain,
         initialCameraPosition:
@@ -65,11 +75,12 @@ class _MapSignUpState extends State<MapSignUp> {
         markers: Set.from(myMarker),
         onTap: _handleTap,
       ),
+      // ปุ่มข้างล่าง
       floatingActionButton: Column(
         children: [
           Container(
             width: 200,
-            margin: EdgeInsets.fromLTRB(0, 600, 70, 0),
+            margin: EdgeInsets.fromLTRB(0, 570, 70, 0),
             child: FloatingActionButton.extended(
               onPressed: _goToMe,
               label: Text(
@@ -83,21 +94,23 @@ class _MapSignUpState extends State<MapSignUp> {
             width: 200,
             margin: EdgeInsets.fromLTRB(0, 20, 70, 0),
             child: FloatingActionButton.extended(
-              shape: StadiumBorder(
-                side: BorderSide(
-                  color: Colors.blue,width: 6
-                )
-              ),
+              shape:
+                  StadiumBorder(side: BorderSide(color: Colors.blue, width: 6)),
               backgroundColor: Colors.white,
               onPressed: () {
                 _sendDataBack(context);
               },
               label: Text(
                 'บันทึก',
-                style: TextStyle(fontFamily: 'Kanit', fontSize: 20,color: Colors.blue,fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontFamily: 'Kanit',
+                    fontSize: 20,
+                    color: Colors.blue,
+                    fontWeight: FontWeight.bold),
               ),
               icon: Icon(
-                Icons.add_location_alt_outlined,color: Colors.blue,
+                Icons.add_location_alt_outlined,
+                color: Colors.blue,
               ),
             ),
           )
@@ -106,9 +119,10 @@ class _MapSignUpState extends State<MapSignUp> {
     );
   }
 
+  //ตำแหน่ง lat long บน marker
   _handleTap(LatLng tappedPoint) {
     setState(() {
-      print("${tappedPoint.latitude}, ${tappedPoint.longitude}");
+      // print("${tappedPoint.latitude}, ${tappedPoint.longitude}");
       locationPoint =
           'Lat : ${tappedPoint.latitude.toString()}, Lng : ${tappedPoint.longitude.toString()}';
       myMarker = [];
@@ -122,6 +136,7 @@ class _MapSignUpState extends State<MapSignUp> {
     });
   }
 
+  // ส่งข้อมูลกลับไปหน้าที่แล้ว
   void _sendDataBack(BuildContext context) {
     Navigator.pop(context, locationPoint);
   }

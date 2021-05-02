@@ -196,6 +196,7 @@ class _PickNumberState extends State<PickNumber> {
                       onPressed: () {
                         widget.onPressed();
                         setState(() {
+                          //ถ้ารายการที่เลือกไม่เคยเลือกมาก่อน และ เรายังมีจำนวนสิทธิ์เหลือ
                           if (!(pickedNumber.contains(_currentIntValue)) &&
                               remaining >= 0) {
                             pickedNumber.add(_currentIntValue);

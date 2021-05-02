@@ -109,6 +109,7 @@ class _NotificateState extends State<Notificate> {
                               children: [
                                 Row(
                                   children: [
+                                    // กดแก้ไขจะขึ้น checkbox
                                     (edit)
                                         ? Checkbox(
                                             activeColor: Colors.green.shade600,
@@ -130,6 +131,7 @@ class _NotificateState extends State<Notificate> {
                                     ),
                                   ],
                                 ),
+                                // แถบสำเร็จที่ด้านหลังจะขึ้นถ้ามีคำว่า ร้องเรียน อยู่หน้า list
                                 (listNotification[index]
                                         .startsWith('ร้องเรียน'))
                                     ? Container(
